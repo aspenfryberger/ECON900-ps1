@@ -20,7 +20,7 @@ date=pd.read_csv("date.csv")  #this is a data frame of dates
 date['month']=date['month'].map("{:02}".format)
 date['day']=date['day'].map("{:02}".format)
 code=shuffle(code).reset_index()
-code=code.drop(["index"], axis=1)
+code=code.drop(["index"], axis=1) 
 date=shuffle(date).reset_index()
 date=date.drop(["index"], axis=1)
 

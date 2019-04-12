@@ -27,7 +27,7 @@ date=date.drop(["index"], axis=1)
 for j in range(0,len(date)):
     a=date.iloc[j,0]
     b=date.iloc[j,1]
-    r=randint(1, 10)
+    r=randint(1, 15)
     time.sleep(2+r)
     driver = webdriver.Firefox(executable_path = 'C:/Users/Aspen/Documents/EV/code/EV_scrape/geckodriver')
     for i in range(0,len(code)):
@@ -35,13 +35,13 @@ for j in range(0,len(date)):
         r=randint(1, 10)
         time.sleep(3+r)
         driver.get('https://www.kayak.com/flights/ATL-'+c+'/2019-'+a+'-'+b+'?sort=bestflight_a')
-        time.sleep(3+r)
+        time.sleep(30+r)
         html = driver.page_source
         f=open("ATL-"+c+"_"+a+"-"+b+".html","w", encoding='utf8')
         f.write(html)
         f.close() 
         r=randint(1, 80)
-        time.sleep(60+r)
+        time.sleep(50+r)
     driver.close()   
 print("--- %s seconds ---" % (time.time() - start_time))
 

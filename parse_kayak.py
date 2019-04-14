@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import os
 import glob
 import pandas as pd
-path="C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\files"
+path="C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\files2"
 os.chdir(path)
 df=pd.DataFrame(columns=['Origin','Destination', 'Date', 'Carrier','Price','Depart_Time','Dep_meridiem',
                               'Arrive_time','Arrival_time_meridiem', 'Flight_pattern'])
@@ -58,5 +58,5 @@ for i in range(0,len(file)):
             'Flight_pattern': flight_pattern
 			}, ignore_index=True)
 
-df.to_csv('C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\data.csv')
+df.to_csv('C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\data2.csv')
 

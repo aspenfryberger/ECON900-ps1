@@ -151,7 +151,7 @@ r2_score(target, results)
 
 data=pd.read_csv("dest_only.csv")
 
-day=data.drop(['Unnamed: 0','Hour', 'Day', 'stops', 'Date', 'Carrier'], axis=1)
+day=data.drop(['Unnamed: 0', 'Day', 'stops', 'Date', 'Carrier'], axis=1)
 #day=day[day['Day']==17]
 
 day_test=day[day['Price']!='Info']

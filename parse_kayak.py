@@ -59,5 +59,5 @@ for i in range(0,len(file)):
             'Flight_pattern': flight_pattern
 			}, ignore_index=True)
 
-df.to_csv('C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\data3.csv')
+df.to_csv('C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\git\\data3.csv')
 

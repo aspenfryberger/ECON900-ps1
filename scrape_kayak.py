@@ -13,7 +13,7 @@ from random import*
 from sklearn.utils import shuffle
 
 start_time = time.time()
-os.chdir("C:\\Users\\Aspen\\Documents\\Toms class\\project_1")
+os.chdir("C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\git")
 
 code=pd.read_excel("codes.xlsx")  #this has airport codes
 date=pd.read_csv("date.csv")  #this is a data frame of dates
@@ -23,8 +23,8 @@ code=shuffle(code).reset_index()
 code=code.drop(["index"], axis=1) 
 date=shuffle(date).reset_index()
 date=date.drop(["index"], axis=1)
-os.chdir("C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\files")
-driver = webdriver.Firefox(executable_path = 'C:/Users/Aspen/Documents/EV/code/EV_scrape/geckodriver')
+os.chdir("C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\files3")
+driver = webdriver.Firefox(executable_path = 'C://Users//Aspen//Documents//Toms class//project_1//git//geckodriver')
 
 for i in range(0,len(code)):
         c=code.iloc[i, 1]

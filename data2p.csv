@@ -1,0 +1,46 @@
+,Destination,Num_flights,Num_carriers,Hour_f,Price,Hour,stops,Date,Carrier,Flight_time_minutes
+3292,CZM,84,5,9,Info,9,1,05-25,United Airlines,352
+3293,CZM,84,5,7,Info,7,1,05-25,United Airlines,462
+3345,DAL,60,4,21,Info,21,0,05-20,Southwest,130
+3346,DAL,60,4,6,Info,6,0,05-20,Southwest,135
+3347,DAL,60,4,13,Info,13,0,05-20,Southwest,135
+3348,DAL,60,4,15,Info,15,0,05-20,Southwest,140
+3349,DAL,60,4,10,Info,10,0,05-20,Southwest,140
+3350,DAL,60,4,19,Info,19,1,05-20,Southwest,220
+3351,DAL,60,4,10,Info,10,1,05-20,Southwest,225
+3352,DAL,60,4,19,Info,19,1,05-20,Southwest,245
+3353,DAL,60,4,19,Info,19,1,05-20,Southwest,255
+3362,DAL,60,4,21,Info,21,0,05-22,Southwest,130
+3363,DAL,60,4,13,Info,13,0,05-22,Southwest,135
+3364,DAL,60,4,6,Info,6,0,05-22,Southwest,135
+3365,DAL,60,4,10,Info,10,0,05-22,Southwest,140
+3366,DAL,60,4,15,Info,15,0,05-22,Southwest,140
+3367,DAL,60,4,19,Info,19,1,05-22,Southwest,220
+3368,DAL,60,4,10,Info,10,1,05-22,Southwest,225
+3375,DAL,60,4,21,Info,21,0,05-23,Southwest,130
+3376,DAL,60,4,13,Info,13,0,05-23,Southwest,135
+3377,DAL,60,4,6,Info,6,0,05-23,Southwest,135
+3378,DAL,60,4,15,Info,15,0,05-23,Southwest,140
+3379,DAL,60,4,10,Info,10,0,05-23,Southwest,140
+3380,DAL,60,4,19,Info,19,1,05-23,Southwest,220
+3381,DAL,60,4,10,Info,10,1,05-23,Southwest,225
+3382,DAL,60,4,19,Info,19,1,05-23,Southwest,245
+3383,DAL,60,4,19,Info,19,1,05-23,Southwest,255
+3391,DAL,60,4,21,Info,21,0,05-24,Southwest,130
+3392,DAL,60,4,13,Info,13,0,05-24,Southwest,135
+3393,DAL,60,4,6,Info,6,0,05-24,Southwest,135
+3394,DAL,60,4,10,Info,10,0,05-24,Southwest,140
+3395,DAL,60,4,15,Info,15,0,05-24,Southwest,140
+3396,DAL,60,4,10,Info,10,1,05-24,Southwest,225
+3397,DAL,60,4,19,Info,19,1,05-24,Southwest,245
+3398,DAL,60,4,9,Info,9,1,05-24,Southwest,255
+6480,GUA,21,5,10,Info,10,0,05-20,Delta,208
+7015,ICT,101,6,19,Info,19,1,05-24,Southwest,290
+10209,MSY,82,5,17,Info,17,0,05-25,Southwest,90
+13481,SDQ,81,6,9,Info,9,0,05-25,Delta,203
+14140,SLC,99,8,6,Info,6,1,05-19,Southwest,380
+14155,SLC,99,8,7,Info,7,1,05-20,Southwest,380
+14169,SLC,99,8,7,Info,7,1,05-21,Southwest,380
+14227,SLC,99,8,16,Info,16,1,05-25,United Airlines,344
+14228,SLC,99,8,10,Info,10,1,05-25,Southwest,350
+14241,SMF,107,8,6,Info,6,1,05-19,Southwest,415

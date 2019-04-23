@@ -8,235 +8,90 @@ Created on Sat Apr 13 07:34:32 2019
 
 
 from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
 import pandas as pd 
 import os
 
-os.chdir("C:\\Users\\Aspen\\Documents\\Toms class\\project_1")
+os.chdir("C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\git")
 
-####################### REGULAR: STOPS, FIXED: DATE, HOUR, DESTINATION, AIRLINE    .910
+data=pd.read_csv("fixed_effects_data3.csv")
+data=data.drop(['Unnamed: 0'], axis=1)
+data_test=data[data['Price']!='Info']
+data_pred=data[data['Price']=='Info']
+data_test['Price']=data_test['Price'].str[1:].astype(int)
+target=data_test.iloc[:,1]
 
-data=pd.read_csv("clean_date.csv")
 
-day=data.drop(['Unnamed: 0', 'Day'], axis=1)
+######################## MODEL 1 
 
-day_test=day[day['Price']!='Info']
-day_pred=day[day['Price']=='Info']
+""" this includes only data on destinations """
 
 
-day_test['Price']=day_test['Price'].str[1:].astype(int)
-target=day_test.iloc[:,0]
-day_test=day_test.drop(['Price'], axis=1)
-day_pred=day_pred.drop(['Price'], axis=1)
+M1=data_test.iloc[:,67:287]
 
+regression1=linear_model.LinearRegression()  
+regression1.fit(M1, target) 
+results1 = regression1.predict(M1) 
+r2_1=r2_score(tar, results1) 
+mse1=mean_squared_error(target, results1)
 
-regression=linear_model.LinearRegression()
-regression.fit(day_test, target) 
-results = regression.predict(day_test)
+##############################  MODEL 2
 
-r2_score(target, results) 
+""" This one includes both destinations and carriers"""
 
+M2=data_test.iloc[:,31:287]
+regression2=linear_model.LinearRegression()
+regression2.fit(M2, target) 
+results2 = regression2.predict(M2)
+r2_2=r2_score(target, results2) 
+mse2=mean_squared_error(target, results2) 
 
-################################## REGULAR: HOUR STOPS   FIXED EFFECTS: DATE, DEST, AIRLINE   .907
+################################# MODEL 3 
 
-data=pd.read_csv("clean_no_hour.csv")
+""" This one includes destinations, carriers, and days of the week fixed effects""" 
 
-day=data.drop(['Unnamed: 0', 'Day'], axis=1)
+M3=data_test.iloc[:,24:287]
+regression3=linear_model.LinearRegression()
+regression3.fit(M3, target) 
+results3 = regression3.predict(M3)
+r2_3=r2_score(target, results3) 
+mse3=mean_squared_error(target, results3) 
 
-day_test=day[day['Price']!='Info']
-day_pred=day[day['Price']=='Info']
 
+###########################  MODEL 4 
+""" This one inlcudes destinations, carriers, days of the week, and hour of the flight as a fixed effects"""
+M4=data_test.iloc[:, 4:287]
+regression4=linear_model.LinearRegression()
+regression4.fit(M4, target) 
+results4 = regression4.predict(M4)
+r2_4=r2_score(target, results4) 
+mse4=mean_squared_error(target, results4) 
 
-day_test['Price']=day_test['Price'].str[1:].astype(int)
-target=day_test.iloc[:,0]
-day_test=day_test.drop(['Price'], axis=1)
-day_pred=day_pred.drop(['Price'], axis=1)
 
 
-regression=linear_model.LinearRegression()
-regression.fit(day_test, target) 
-results = regression.predict(day_test)
+#################### MODEL 5 
+""" this one includes the destination, carrier, days of the week, and the number of stops """
+cols = [3] + list(range(24,287))
+M5= data_test.iloc[:,cols]
+regression5=linear_model.LinearRegression()
+regression5.fit(M5, target) 
+results5 = regression5.predict(M5)
+r2_5=r2_score(target, results5) 
+mse5=mean_squared_error(target, results5) 
 
-r2_score(target, results) 
 
+###################  MODEL 6 
+""" this one includes the destination, carrier, days of the week, and the number of carriers """
+cols = [0] + list(range(24,287))
+M6= data_test.iloc[:,cols]
+regression6=linear_model.LinearRegression()
+regression6.fit(M6, target) 
+results6 = regression6.predict(M6)
+r2_6=r2_score(target, results6) 
+mse6=mean_squared_error(target, results6) 
 
 
-
-
-################################## REGULAR: HOUR STOPS DATE,  FIXED EFFECTS: DATE, DEST, AIRLINE  R2   .907
-
-
-###single day .9224 day=16
-###single day .9224 day=17   0.9501
-data=pd.read_csv("clean_no_hour.csv")
-
-day=data.drop(['Unnamed: 0', 'Date_04-16', 'Date_04-17', 'Hour', 'Day', 'stops'], axis=1)
-day=day[day['Day']==17]
-
-day_test=day[day['Price']!='Info']
-day_pred=day[day['Price']=='Info']
-
-
-day_test['Price']=day_test['Price'].str[1:].astype(int)
-target=day_test.iloc[:,0]
-day_test=day_test.drop(['Price'], axis=1)
-day_pred=day_pred.drop(['Price'], axis=1)
-
-
-regression=linear_model.LinearRegression()
-regression.fit(day_test, target) 
-results = regression.predict(day_test)
-
-r2_score(target, results) 
-
-
-
-
-
-################################## REGULAR: HOUR STOPS DATE,  FIXED EFFECTS: DATE, DEST, AIRLINE  R2   .907
-
-
-###single day .9224 day=16
-###single day .9224 day=17   0.9501
-data=pd.read_csv("basic.csv")
-
-day=data.drop(['Unnamed: 0','Hour', 'Day', 'stops', 'Date', ], axis=1)
-day=day[day['Day']==17]
-
-day_test=day[day['Price']!='Info']
-day_pred=day[day['Price']=='Info']
-
-
-day_test['Price']=day_test['Price'].str[1:].astype(int)
-target=day_test.iloc[:,0]
-day_test=day_test.drop(['Price'], axis=1)
-day_pred=day_pred.drop(['Price'], axis=1)
-
-
-regression=linear_model.LinearRegression()
-regression.fit(day_test, target) 
-results = regression.predict(day_test)
-
-r2_score(target, results) 
-
-
-################################## REGULAR: HOUR STOPS DATE,  FIXED EFFECTS: DATE, DEST, AIRLINE  R2   .907
-
-
-###single day .9224 day=16
-###single day .9224 day=17   0.9501
-data=pd.read_csv("basic.csv")
-
-day=data.drop(['Unnamed: 0','Hour', 'Day', 'stops', 'Date', ], axis=1)
-day=day[day['Day']==17]
-
-day_test=day[day['Price']!='Info']
-day_pred=day[day['Price']=='Info']
-
-
-day_test['Price']=day_test['Price'].str[1:].astype(int)
-target=day_test.iloc[:,0]
-day_test=day_test.drop(['Price'], axis=1)
-day_pred=day_pred.drop(['Price'], axis=1)
-
-
-regression=linear_model.LinearRegression()
-regression.fit(day_test, target) 
-results = regression.predict(day_test)
-
-r2_score(target, results) 
-
-
-
-################################## REGULAR: HOUR STOPS DATE,  FIXED EFFECTS: DATE, DEST, AIRLINE  R2   .907
-
-data=pd.read_csv("dest_only.csv")
-
-day=data.drop(['Unnamed: 0', 'Day', 'stops', 'Date', 'Carrier'], axis=1)
-#day=day[day['Day']==17]
-
-day_test=day[day['Price']!='Info']
-day_pred=day[day['Price']=='Info']
-
-
-day_test['Price']=day_test['Price'].str[1:].astype(int)
-target=day_test.iloc[:,0]
-day_test=day_test.drop(['Price'], axis=1)
-day_pred=day_pred.drop(['Price'], axis=1)
-
-
-regression=linear_model.LinearRegression()
-regression.fit(day_test, target) 
-results = regression.predict(day_test)
-
-r2_score(target, results) 
-
-
-###############################
-
-data=pd.read_csv("clean_no_hour.csv")
-day=data.drop(['Unnamed: 0', 'Date_04-16', 'Date_04-17'], axis=1)
-
-
-day_test=day[day['Price']!='Info']
-day_pred=day[day['Price']=='Info']
-
-
-day_test['Price']=day_test['Price'].str[1:].astype(int)
-target=day_test.iloc[:,2]
-day_test=day_test.drop(['Hour'], axis=1)
-#day_pred=day_pred.drop(['Price'], axis=1)
-
-
-regression=linear_model.LinearRegression()
-regression.fit(day_test, target) 
-results = regression.predict(day_test)
-
-r2_score(target, results) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-data=pd.read_csv("clean_hour.csv")
-
-data=data[data['Day']==13]
-
-day=data.drop(['Unnamed: 0'], axis=1)
-
-day_test=day[day['Price']!='Info']
-day_pred=day[day['Price']=='Info']
-day_pred=day_pred[day_pred['Day']==13]
-
-day_test['Price']=day_test['Price'].str[1:].astype(int)
-target=day_test.iloc[:,0]
-day_test=day_test.drop(['Price'], axis=1)
-day_pred=day_pred.drop(['Price'], axis=1)
-
-
-
-
-regression=linear_model.LinearRegression()
-regression.fit(day_test, target) 
-results = regression.predict(day_test)
-
-r2_score(target, results) 
-
-
-
-
-results2 = regression.predict(day_pred)
-
-
-
-
-
+##################   Predicting Unkown Price 
+M3_pred=data_pred.iloc[:,24:287]
+results3_pred = pd.DataFrame(regression3.predict(M3_pred))
+results3_pred.to_csv("results.csv")

@@ -57,14 +57,7 @@ data3=pd.get_dummies(data2, prefix=['Hour_f', 'Date', 'Carrier', 'Dest'],
 
 data3.to_csv('fixed_effects_data3.csv')
 
-##########descrtiptive stats
 
-data_test=data2[data2['Price']!='Info']
-data_pred=data2[data2['Price']=='Info']
-data_test['Price']=data_test['Price'].str[1:].astype(int)
-
-data_pred.to_csv('data2p.csv')
-data_test.to_csv('data2t.csv')
 
 
 

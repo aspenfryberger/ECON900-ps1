@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import os
 import glob
 import pandas as pd
-path="C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\files3"
+path="C:\\Users\\Aspen\\Documents\\Toms class\\project_1\\file3"
 os.chdir(path)
 df=pd.DataFrame(columns=['Origin','Destination', 'Date', 'Carrier','Price','Depart_Time','Dep_meridiem',
                               'Arrive_time','Arrival_time_meridiem', 'Duration', 'Flight_pattern'])

@@ -32,7 +32,7 @@ M1=data_test.iloc[:,67:287]
 regression1=linear_model.LinearRegression()  
 regression1.fit(M1, target) 
 results1 = regression1.predict(M1) 
-r2_1=r2_score(tar, results1) 
+r2_1=r2_score(target, results1) 
 mse1=mean_squared_error(target, results1)
 
 ##############################  MODEL 2
